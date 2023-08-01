@@ -1,0 +1,35 @@
+<div id="registration">
+    <div class="card mb-3">
+        <div class="d-flex justify-content-center">
+          <img src="../../assets/Free_Sample_By_Wix.jpg" class="card-img-top image_50" alt="Doc App Logo">
+        </div>    
+        <div class="card-body">
+            <form>
+                <h5 class="card-title">Registration</h5>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <!--[(ngModel)]="username": Represents two-way data binding using ngModel. 
+                      It binds the value of the input field to the username property in the component 
+                      class. Any changes made in the input field will update the username property, and 
+                      vice versa.
+                      
+                      [ngModelOptions]="{standalone: true}": Configures the behavior of the data binding. 
+                      Here, standalone: true means that the ngModel directive will not look for a parent 
+                      form to bind to. This allows the input to work independently without requiring a form.-->
+                    <input type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text"></div>
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>    
+</div>
