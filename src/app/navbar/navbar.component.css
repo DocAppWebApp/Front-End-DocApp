@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    height: 50px;
+    background: #5DBBFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-container {
+    width: 100%;
+    max-width: 1502px;
+    padding: 0 2%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .navbar-container a {
+    color: inherit;
+  text-decoration: none;
+  }
+
+  .color {
+    color: #07567E;
+  }
+
+  
+
+
+
+
