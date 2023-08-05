@@ -1,35 +1,57 @@
-<div id="registration">
-    <div class="card mb-3">
-        <div class="d-flex justify-content-center">
-          <img src="../../assets/Free_Sample_By_Wix.jpg" class="card-img-top image_50" alt="Doc App Logo">
-        </div>    
-        <div class="card-body">
-            <form>
-                <h5 class="card-title">Registration</h5>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <!--[(ngModel)]="username": Represents two-way data binding using ngModel. 
-                      It binds the value of the input field to the username property in the component 
-                      class. Any changes made in the input field will update the username property, and 
-                      vice versa.
-                      
-                      [ngModelOptions]="{standalone: true}": Configures the behavior of the data binding. 
-                      Here, standalone: true means that the ngModel directive will not look for a parent 
-                      form to bind to. This allows the input to work independently without requiring a form.-->
-                    <input type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text"></div>
-                  </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>    
-</div>
+<div class="container mt-5">
+  <div class="row gx-5 align-items-center">
+    <div class="col-6">
+      <div class="container bg_color registration text-center width">
+        <div class="mb-3 mt-3"><button type="button" (click)="change_patient()" id="btn_patient" class="btn btn-outline-primary">Sign Up as Patient</button></div>
+        <div class="mb-3"><button type="button" (click)="change_doctor()" id="btn_doctor" class="btn btn-outline-primary">Sign Up as Physician</button></div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="registration">
+        <div class="card bg_color">
+              <div class="card-body">
+                  <form>
+                      <h5 id="actor" class="card-title">Patient</h5>
+                      <div class="mb-3">
+                        <label for="fullname" class="form-label">Full name</label>
+                        <input type="text" [(ngModel)]="fullname" [ngModelOptions]="{standalone: true}" class="form-control" id="fullname" name="fullname" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label" >Email address</label>
+                        <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" aria-describedby="emailHelp" required>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="mb-3">
+                            <label for="gender" id="option1" class="form-label">Gender</label>
+                            <input type="text" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" class="form-control" name="gender" required>
+                          </div>    
+                        </div>
+                        <div class="col-6">
+                          <div class="mb-3">
+                            <label for="dob" id="option2" class="form-label">Date of birth</label>
+                            <input type="text" [(ngModel)]="dob" [ngModelOptions]="{standalone: true}" class="form-control" name="dob" required>
+                          </div>    
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="hcn" id="option3" class="form-label">Health Card Number</label>
+                        <input type="text" [(ngModel)]="hcn" [ngModelOptions]="{standalone: true}" class="form-control"  name="hcn" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="username" class="form-label">Username</label>
+                          <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" class="form-control" id="username" aria-describedby="emailHelp" name="username" required>
+                          <div id="emailHelp" class="form-text"></div>
+                        </div>
+                      <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" name="password" required>
+                      </div>
+                      <button type="submit" (click)="register()" class="btn btn-primary">Submit</button>
+                  </form>
+              </div>
+          </div>    
+      </div>      
+    </div>
+  </div>
+</div>  
