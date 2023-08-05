@@ -1,0 +1,47 @@
+h1 {
+    color: #07567E;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: center;
+    position: relative;
+    top: 50px;
+  }
+
+.container {
+    position: relative;
+  }
+  
+  .text-block {
+    top: 100px;
+    position: absolute;
+    text-align: center;
+    color: #07567E;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 300;
+    word-wrap: break-word;
+  }
+  
+  .image {
+    width: 440px;
+    height: 260px;
+    left: 350px;
+    top: 150px;
+    position: absolute;
+    align-self: center;
+    
+  }
+    
+  .text-block2 {
+    top: 450px;
+    text-align: center;
+    color: #07567E;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 300;
+    word-wrap: break-word;
+    position: relative;
+
+  }
