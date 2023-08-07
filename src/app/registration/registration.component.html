@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container mt-5">
   <div class="row gx-5 align-items-center">
     <div class="col-6">
@@ -38,11 +39,6 @@
                         <label for="hcn" id="option3" class="form-label">Health Card Number</label>
                         <input type="text" [(ngModel)]="hcn" [ngModelOptions]="{standalone: true}" class="form-control"  name="hcn" required>
                       </div>
-                      <div class="mb-3">
-                          <label for="username" class="form-label">Username</label>
-                          <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" class="form-control" id="username" aria-describedby="emailHelp" name="username" required>
-                          <div id="emailHelp" class="form-text"></div>
-                        </div>
                       <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" name="password" required>
