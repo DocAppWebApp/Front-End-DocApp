@@ -19,7 +19,6 @@ export class RegistrationComponent {
   sin: Number=0;
   phone: Number=0;
   mln: Number=0;
-  username: String = "";
   password: String = "";
 
   constructor(private router: Router, private http: HttpClient){}
@@ -39,7 +38,6 @@ export class RegistrationComponent {
         "gender": this.gender,
         "birthdate": this.dob,
         "healthcard": this.hcn,
-        "username": this.username,
         "password": this.password
       };
       //test the data to send within the request
@@ -54,7 +52,6 @@ export class RegistrationComponent {
           this.gender="";
           this.dob="";
           this.hcn=0;
-          this.username="";
           this.password="";
           //this.router.navigateByUrl('/login');
         });
@@ -64,11 +61,10 @@ export class RegistrationComponent {
     }else if(actor.textContent=='Physician'){
       let bodyData = {
         "fullname": this.fullname,
-        "physicianEmail": this.email,
+        "email": this.email,
         "status": "active",
         "sin": this.gender,
         "mln": this.hcn,
-        "username": this.username,
         "password": this.password
       };
       //test the data to send within the request
@@ -82,7 +78,6 @@ export class RegistrationComponent {
         this.gender="";
         this.dob="";
         this.hcn=0;
-        this.username="";
         this.password="";
         //this.router.navigateByUrl('/login');
       });
