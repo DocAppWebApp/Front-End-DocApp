@@ -1,0 +1,15 @@
+
+<main class="form-signin w-100 m-auto">
+    <form>
+      <h1 class="h3 mb-3 fw-normal">Please provide your Availability here</h1>
+      <div class="form-floating">
+        <input type="email" class="form-control" disabled id="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" name="email">
+        <label for="email"></label>
+      </div>
+      <div class="form-floating">
+        <input type="date" class="form-control" id="date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" required>
+        <label for="date">Date</label>
+      </div>
+      <button class="btn btn-primary w-100 py-2" type="submit" (click)="register_availability()" name="btn_login">Submit</button>
+    </form>
+</main>

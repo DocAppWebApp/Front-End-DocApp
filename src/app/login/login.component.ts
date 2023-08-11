@@ -45,7 +45,8 @@ export class LoginComponent {
         if(resultData.status){
           alert("Welcome to Docap! let´s check your scheduled appointments");
           this.authService.login();
-          this.router.navigateByUrl('/appointments');
+          sessionStorage.setItem("email",loginData.email);
+          this.router.navigateByUrl('/physicianappointments');
         }else{
           alert('incorrect email or password');
         }
@@ -60,7 +61,7 @@ export class LoginComponent {
           alert("Welcome to Docap! let´s check your patient´s new appointments");
           sessionStorage.setItem("email",this.email);
           this.authService.login();
-          this.router.navigateByUrl('/appointments');
+          this.router.navigateByUrl('/physicianappointments');
         }else{
           alert('incorrect email or password');
         }
