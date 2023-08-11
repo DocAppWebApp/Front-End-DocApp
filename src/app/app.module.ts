@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { Physician_AppointmentsComponent } from './physician_appointments/physician_appointments.component';
+import { PhysicianAvailabilityFormComponent } from './physician-availability-form/physician-availability-form.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -19,13 +22,16 @@ import { LoginComponent } from './login/login.component';
     RegistrationComponent,
     HomeComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    Physician_AppointmentsComponent,
+    PhysicianAvailabilityFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

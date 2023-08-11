@@ -15,10 +15,10 @@ export class RegistrationComponent {
   email: String = "";
   gender: String = "";
   dob: String ="";
-  hcn: Number=0;
-  sin: Number=0;
-  phone: Number=0;
-  mln: Number=0;
+  hcn: String="";
+  sin: String="";
+  phone: String="";
+  mln: String="";
   password: String = "";
 
   constructor(private router: Router, private http: HttpClient){}
@@ -51,7 +51,7 @@ export class RegistrationComponent {
           this.email="";
           this.gender="";
           this.dob="";
-          this.hcn=0;
+          this.hcn="";
           this.password="";
           //this.router.navigateByUrl('/login');
         });
@@ -77,7 +77,7 @@ export class RegistrationComponent {
         this.email="";
         this.gender="";
         this.dob="";
-        this.hcn=0;
+        this.hcn="";
         this.password="";
         //this.router.navigateByUrl('/login');
       });
