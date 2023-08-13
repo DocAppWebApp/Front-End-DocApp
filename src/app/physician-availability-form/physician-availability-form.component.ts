@@ -18,14 +18,18 @@ export class PhysicianAvailabilityFormComponent {
   }
   register_availability() {
     let bodyData={
-      "_idDate":"64d136dfba3c59ad9beb03b9",
       "physicianEmail": this.email,
       "Date": this.date
     };
     console.log(bodyData);
-    this.http.post("http://localhost:4000/appointment/saveday",bodyData).subscribe((resultData:any)=>{
-      console.log(resultData);
-      alert("Your availability has been succesfully been registered!");
-    });
+    try {
+      this.http.post("http://localhost:4000/appointment/saveday",bodyData).subscribe((resultData:any)=>{
+        console.log(resultData);
+        alert("Your availability has been succesfully been registered!"+resultData.message);
+      }); 
+    } catch (error) {
+      console.error(error);
+      console.log(error);
+    }
   }
 }
