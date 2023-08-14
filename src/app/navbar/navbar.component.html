@@ -7,7 +7,7 @@
       <div><a href="/appointments">Appointments</a></div>
       <!--<div><a href="/login">Sign in</a></div>-->
       <div *ngIf="!authService.isLoggedIn"><a href="/login">Sign in</a></div>
-      <div *ngIf="authService.isLoggedIn" class="color"><a href="/">Sign out</a></div>
+      <div *ngIf="authService.isLoggedIn" (click)="authService.logout()" class="color"><a href="/">Sign out</a></div>
    
       <div class="color" *ngIf="!authService.isLoggedIn"><a href="/registration">Sign up</a></div>
   </div>
