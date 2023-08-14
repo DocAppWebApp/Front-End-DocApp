@@ -5,7 +5,9 @@
       </a>
       <div><a href="">Home</a></div>
       <div><a href="/appointments">Appointments</a></div>
-      <!--<div><a href="/login">Sign in</a></div>-->
+      
+      <div><a href="/patient">Patient</a></div>
+
       <div *ngIf="!authService.isLoggedIn"><a href="/login">Sign in</a></div>
       <div *ngIf="authService.isLoggedIn" class="color"><a href="/">Sign out</a></div>
    
