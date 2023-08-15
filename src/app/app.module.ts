@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { Physician_AppointmentsComponent } from './physician_appointments/physician_appointments.component';
 import { PhysicianAvailabilityFormComponent } from './physician-availability-form/physician-availability-form.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
+import { PatientScheduleFormComponent } from './patient-schedule-form/patient-schedule-form.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     NavbarComponent,
     LoginComponent,
     Physician_AppointmentsComponent,
-    PhysicianAvailabilityFormComponent
+    PhysicianAvailabilityFormComponent,
+    PatientAppointmentsComponent,
+    PatientScheduleFormComponent
   ],
   imports: [
     BrowserModule,
