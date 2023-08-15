@@ -7,6 +7,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  type:any="";
+  
   constructor(public authService: AuthService){}
-
+  ngOnInit(): void {
+    this.type =sessionStorage.getItem("type");
+  }
 }

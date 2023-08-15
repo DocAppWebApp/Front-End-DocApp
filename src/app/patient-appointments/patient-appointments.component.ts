@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -77,7 +76,6 @@ export class PatientAppointmentsComponent {
 
   constructor(
     private http: HttpClient,
-    public authService: AuthService,
     private router: Router
   ) {}
 

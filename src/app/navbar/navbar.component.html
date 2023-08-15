@@ -4,9 +4,9 @@
           <img src="./assets/Free_Sample_By_Wix.jpg" alt="Logo" width="50" height="40" class="d-inline-block align-text-top" >
       </a>
       <div><a href="">Home</a></div>
-      <div><a href="/appointments">Appointments</a></div>
+      <div *ngIf="authService.isLoggedIn"><a [hidden]="type!='physician'" href="/appointments">Appointments</a></div>
       
-      <div><a href="/patient">Patient</a></div>
+      <div *ngIf="authService.isLoggedIn"><a [hidden]="type!='patient'" href="/patient">Patient</a></div>
 
       <div *ngIf="!authService.isLoggedIn"><a href="/login">Sign in</a></div>
       <div *ngIf="authService.isLoggedIn" (click)="authService.logout()" class="color"><a href="/">Sign out</a></div>
