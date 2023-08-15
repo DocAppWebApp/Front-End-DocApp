@@ -1,21 +1,18 @@
 <form>
-    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-        <option selected>Select the physician</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" (change)="onSelectChange(1)">
+        <option *ngFor="let option of physicianList" [value]="option">{{ option }}</option>
       </select>
-      <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+      <select class="form-select form-select-lg mb-3" aria-label="Large select example" *ngIf="physicianSelected"(change)="onSelectChange(2)">
         <option selected>Select Date</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
-      <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+      <select class="form-select form-select-lg mb-3" aria-label="Large select example" *ngIf="dateSelected" (change)="onSelectChange(3)">
         <option selected>Select time</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="createAppointment()"  [disabled]="submitButtonEnabled">Submit</button>
   </form>

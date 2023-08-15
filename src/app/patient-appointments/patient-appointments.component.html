@@ -11,12 +11,12 @@
     If you consider that you are not going to be able to arrive on time, please
     cancel and book a new appointment.
   </p>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-primary" (click)="startAppointment()" data-bs-toggle="modal" data-bs-target="#scheduleModal">
     Create new Appointment
   </button>
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal schedule appointment-->
+  <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -24,13 +24,26 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <app-patient-schedule-form></app-patient-schedule-form>
+          <form>
+            <select class="form-select form-select-lg mb-3" [(ngModel)]="physicianSelected" name="selectedPhysician" (change)="onSelectChange(1)">
+                <option *ngFor="let physician of uniquePhysicians" [value]="physician">{{ physician }}</option>
+            </select>
+            <select class="form-select form-select-lg mb-3" *ngIf="physicianSelected!=' '" [(ngModel)]="dateSelected" name="dateSelected" (change)="onSelectChange(2)">
+              <option *ngFor="let Date of physicianDates" [value]="Date">{{ Date }}</option>
+            </select>
+            <select class="form-select form-select-lg mb-3"  *ngIf="dateSelected!=' ' && physicianSelected!=' '" [(ngModel)]="startTimeSelected" name="startTimeSelected" (change)="onSelectChange(3)">
+              <option *ngFor="let Time of schedulesTimes" [value]="Time">{{ Time }}</option>
+            </select>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" (click)="createAppointment()"  [disabled]="submitButtonEnabled">Submit</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
-  <br />
+    
+  <br>
+  <br>
   <div class="container">
     <table class="table">
       <thead>
@@ -39,16 +52,54 @@
           <th scope="col">Start Time</th>
           <th scope="col">End Time</th>
           <th scope="col">Physician</th>
-          <th scope="col">Cancel Appointment</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of appointments">
-          <td>{{ item.Date }}</td>
+          <td>{{ item.Date.split("T")[0] }}</td>
           <td>{{ item.startTime }}</td>
           <td>{{ item.endTime }}</td>
           <td>{{ item.physicianEmail }}</td>
-          <td><button type="button" class="btn btn-danger" (click)="cancelAppointment(item._id)">Cancel Appointment</button></td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewAppointmentModal" (click)="infoAppointment(item._id)"><i class="fa-solid fa-pen-to-square"></i></button>
+            <!-- Modal view appointment-->
+            <div class="modal fade" id="viewAppointmentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Your Appointment</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <td>Date</td>
+                            <td>{{viewAppointment.Date}}</td>
+                          </tr> 
+                          <tr>
+                            <td>Start Time</td>
+                            <td>{{viewAppointment.startTime}}</td>
+                          </tr> 
+                          <tr>
+                            <td>End Time</td>
+                            <td>{{viewAppointment.endTime}}</td>
+                          </tr> 
+                          <tr>
+                            <td>Physician</td>  
+                            <td>{{viewAppointment.physicianEmail}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="cancelAppointment(item._id)"><i class="fa-solid fa-trash"></i></button>
+          </td>
         </tr>
       </tbody>
     </table>
